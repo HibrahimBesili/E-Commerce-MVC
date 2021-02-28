@@ -1,0 +1,59 @@
+﻿@using E_Commerce_MVC.Entity
+@model IEnumerable<Product>
+
+    <div class="row">
+        <div id="sidebar" class="span3">
+            <div class="well well-small">
+                <ul class="nav nav-list">
+               @Html.Action("_CategoryList","Categorie")
+                    <li style="border:0"> &nbsp;</li>
+                    <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+                </ul>
+            </div>
+
+            
+            
+            <br>
+            <br>
+            @Html.Action("_FeaturedPartialProductList","Home")
+
+        </div>
+        <div class="span9">
+            @Html.Action("_SliderProductList", "Home")
+            <!--
+        New Products
+        -->
+            <div class="well well-small">
+                <h3> Ürünler </h3>
+                <hr class="soften" />
+
+
+                <ul class="thumbnails">
+                    @foreach (var item in Model)
+                    {
+                        <li class="span3">
+
+
+                            <a href="/Home/ProductDetails/@item.Id"><img src="~/Content/Images/@item.Image" style="max-width:207px;max-height:267px;min-height:267px;min-width:207px" alt=""></a>
+                            <div class="caption cntr">
+                                <p>@item.Pname</p>
+                                <p><strong> @item.Price ₺</strong></p>
+                                <h4><a class="shopBtn" href="/Home/ProductDetails/@item.Id" title="add to cart"> Görüntüle</a></h4>
+
+                                
+                            </div>
+
+                        </li>
+                    }
+
+
+
+                    <!--
+                Featured Products
+                -->
+
+                </ul>
+
+            </div>
+        </div>
+    </div>

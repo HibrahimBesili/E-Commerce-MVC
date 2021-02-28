@@ -1,0 +1,76 @@
+﻿@using E_Commerce_MVC.Entity
+@model Product
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Categorie")
+                <li style="border:0"> &nbsp;</li>
+                <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+            </ul>
+        </div>
+
+        <div class="well well-small alert alert-warning cntr">
+            <h2>50% Discount</h2>
+            <p>
+                only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
+            </p>
+        </div>
+        <div class="well well-small"><a href="#"><img src="/website/assets/img/paypal.jpg" alt="payment method paypal"></a></div>
+
+        <a class="shopBtn btn-block" href="#">Upcoming products <br><small>Click to view</small></a>
+        <br>
+        <br>
+        @Html.Action("_FeaturedPartialProductList", "Home")
+
+    </div>
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="/Home/Index">AnaSayfa</a> <span class="divider">/</span></li>
+            <li><a href="/Home/Product">Ürünler</a> <span class="divider">/</span></li>
+            <li class="active">Ürün Detay</li>
+        </ul>
+        <div class="well well-small">
+            <div class="row-fluid">
+                <div class="span5">
+                    <div id="myCarousel" class="carousel slide cntr">
+                       
+                            <div class="item ">
+                                <a href="#"> <img src="~/Content/Images/@Model.Image" alt="" style="width:100%"></a>
+                            </div>
+                           
+                        </div>
+                       
+                    </div>
+               
+                <div class="span7">
+                    <h3>@Model.Pname</h3>
+                    <hr class="soft" />
+
+                    <form class="form-horizontal qtyFrm">
+                        <div class="control-group">
+                            <label class="control-label"><span>@Model.Price ₺</span></label>
+                            
+                        </div>
+
+                        
+                        
+                        <h4>@Model.Stock Adet</h4>
+                        <p>
+                            @Model.Description
+                        <p><p>
+                             <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Sepete Ekle</button>
+                            </p>
+                        </form>
+                </div>
+            </div>
+            <hr class="softn clr" />
+
+
+            
+            
+
+        </div>
+    </div>
+</div> <!-- Body wrapper -->

@@ -1,0 +1,43 @@
+﻿@model E_Commerce_MVC.Entity.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <section class="content">
+
+        <h3>Silmek İstediğinize Emin misiniz </h3>
+        <div>
+            <h4>Category</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Kategori Adı
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Cname)
+                </dd>
+
+                <dt>
+                    Açıklama
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Sil" class="btn btn-danger" />
+                    @Html.ActionLink("Kategori Listesi", "Index", null, new { @class = "btn btn-warning" })
+                </div>
+            }
+        </div>
+        </section>

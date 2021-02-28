@@ -1,0 +1,62 @@
+﻿@using E_Commerce_MVC.Entity
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="row">
+        <div id="sidebar" class="span3">
+            <div class="well well-small">
+                <ul class="nav nav-list">
+                    @Html.Action("_CategoryList", "Categorie")
+                    <li style="border:0"> &nbsp;</li>
+                    <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+                </ul>
+            </div>
+
+            <div class="well well-small alert alert-warning cntr">
+                <h2>50% Discount</h2>
+                <p>
+                    only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
+                </p>
+            </div>
+            <div class="well well-small"><a href="#"><img src="/website/assets/img/paypal.jpg" alt="payment method paypal"></a></div>
+
+            <a class="shopBtn btn-block" href="#">Upcoming products <br><small>Click to view</small></a>
+            <br>
+            <br>
+            @Html.Action("_FeaturedPartialProductList", "Home")
+
+        </div>
+        <div class="span9">
+            <!--
+        New Products
+        -->
+
+            <h3>Our Products </h3>
+
+            <ul class="thumbnails">
+                @foreach (var item in Model)
+                {
+                    <li class="span3">
+                        <div class="thumbnail">
+
+                            <a href="/Home/ProductDetails/@item.Id"><img src="~/Content/Images/@item.Image" style="max-width:207px;max-height:267px;min-height:267px;min-width:207px" alt=""></a>
+                            <div class="caption cntr">
+                                <p>@item.Pname</p>
+                                <p><strong>@item.Price</strong></p>
+                                <h4><a class="shopBtn" href="/Home/ProductDetails/@item.Id" title="add to cart"> Görüntüle </a></h4>
+
+                                <br class="clr">
+                            </div>
+                        </div>
+                    </li>
+                }
+
+
+            </ul>
+
+        </div>
+    </div>
+

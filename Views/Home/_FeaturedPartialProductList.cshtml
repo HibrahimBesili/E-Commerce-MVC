@@ -1,0 +1,22 @@
+﻿@using E_Commerce_MVC.Entity
+@model IEnumerable<E_Commerce_MVC.Entity.Product>
+    <h3>Popüler Ürünler</h3>
+    <ul class="nav nav-list promowrapper">
+
+        @foreach (var item in Model)
+        {
+            <li>
+                <div class="thumbnail">
+                    <a class="zoomTool" href="/Home/ProductDetails/@item.Id" title="Sepete Ekle" style="display: none;"><span class="icon-search"></span>Görüntüle</a>
+                    <img src="~/Content/Images/@item.Image" alt="bootstrap ecommerce templates">
+                    <div class="caption">
+                        <h4><a class="defaultBtn" href="/Home/ProductDetails/@item.Id"></a> <span class="pull-right">@item.Price (₺)</span></h4>
+                    </div>
+                </div>
+            </li>
+            <li style="border:0"> &nbsp;</li>
+        }
+
+
+
+    </ul>

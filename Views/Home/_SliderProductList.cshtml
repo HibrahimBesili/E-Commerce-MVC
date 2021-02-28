@@ -1,0 +1,23 @@
+﻿@using E_Commerce_MVC.Entity
+@model IEnumerable<Product>
+<div class="well np">
+    <div id="myCarousel" class="carousel slide homCar">
+        <div class="carousel-inner">
+            @foreach (var item in Model)
+            {
+                <div class="item">
+                   <a href="/Home/ProductDetails/@item.Id"></a> <img style="width:100%;max-width:698px;max-height:327px;min-height:327px;min-width:698px" src="~/Content/Images/@item.Image" alt="bootstrap ecommerce templates">
+                    <div class="carousel-caption">
+                        <h4>@item.Pname</h4>
+                        <p><span>@item.Price</span></p>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+    </div>
+</div>
